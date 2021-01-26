@@ -10,12 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_26_094714) do
+ActiveRecord::Schema.define(version: 2021_01_26_190421) do
 
-  create_table "tipo_produtos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "produtos", charset: "utf8mb4", force: :cascade do |t|
+    t.string "nome"
+    t.text "descricao"
+    t.integer "quantidade"
+    t.bigint "tipo_produto_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tipo_produto_id"], name: "index_produtos_on_tipo_produto_id"
+  end
+
+  create_table "tipo_produtos", charset: "utf8mb4", force: :cascade do |t|
     t.string "nome"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "produtos", "tipo_produtos"
 end

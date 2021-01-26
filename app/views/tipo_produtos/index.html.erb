@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Tipo Produtos</h1>
+<h1>Tipode Produtos</h1>
 
 <table>
   <thead>
@@ -14,9 +14,9 @@
     <% @tipo_produtos.each do |tipo_produto| %>
       <tr>
         <td><%= tipo_produto.nome %></td>
-        <td><%= link_to 'Show', tipo_produto %></td>
-        <td><%= link_to 'Edit', edit_tipo_produto_path(tipo_produto) %></td>
-        <td><%= link_to 'Destroy', tipo_produto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Listar', tipo_produto %></td>
+        <td><%= link_to 'Editar', edit_tipo_produto_path(tipo_produto) %></td>
+        <td><%= link_to 'Excluir', tipo_produto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Tipo Produto', new_tipo_produto_path %>
+<%= link_to 'Novo Tipo  de Produto', new_tipo_produto_path %>

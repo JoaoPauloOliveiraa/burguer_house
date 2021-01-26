@@ -13,7 +13,9 @@ Rails.application.configure do
 
   # Show full error reports.
   config.consider_all_requests_local = true
-
+  
+  config.hosts << "81099f8e73e94f38bcd1c90ac215b256.vfs.cloud9.us-east-2.amazonaws.com"
+  
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
   if Rails.root.join('tmp', 'caching-dev.txt').exist?
