@@ -1,37 +1,55 @@
-<%= form_with(model: produto) do |form| %>
-  <% if produto.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(produto.errors.count, "error") %> prohibited this produto from being saved:</h2>
+<%= form_for @produto, :html => { :class => "form-horizontal produto" } do |f| %>
 
-      <ul>
-        <% produto.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+  <% if @produto.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@produto.errors.count, "error") %> prohibited this produto from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @produto.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
         <% end %>
-      </ul>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :nome %>
-    <%= form.text_field :nome %>
+  <div class="form-group">
+    <%= f.label :nome, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :nome, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:nome) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :descricao, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :descricao, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:descricao) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :quantidade, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :quantidade, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:quantidade) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :tipo_produto_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :tipo_produto_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:tipo_produto_id) %>
   </div>
 
-  <div class="field">
-    <%= form.label :descricao %>
-    <%= form.text_area :descricao %>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                produtos_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :quantidade %>
-    <%= form.number_field :quantidade %>
-  </div>
-
-  <div class="field">
-    <%= form.label :tipo_produto_id %>
-    <%= form.text_field :tipo_produto_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
