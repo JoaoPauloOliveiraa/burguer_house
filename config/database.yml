@@ -19,14 +19,14 @@ default: &default
 
 development:
   <<: *default
-  database: mundo_feliz_admin_development
+  database: burguer_house_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: mundo_feliz_admin_test
+  database: burguer_house_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -50,6 +50,6 @@ test:
 #
 production:
   <<: *default
-  database: mundo_feliz_admin_production
-  username: mundo_feliz_admin
-  password: <%= ENV['MUNDO_FELIZ_ADMIN_DATABASE_PASSWORD'] %>
+  database: burguer_house_production
+  username: burguer_house
+  password: <%= ENV['BURGUER_HOUSE_DATABASE_PASSWORD'] %>

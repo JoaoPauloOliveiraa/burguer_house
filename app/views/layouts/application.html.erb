@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "MundoFelizAdmin" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Burguer House" %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag "application", :media => "all" %>
@@ -29,12 +29,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Mundo Feliz Admin</a>
+        <a class="navbar-brand" href="#">Burguer House</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
             <li><%= link_to "Home", "/home"  %></li>
             <li><%= link_to "Tipo de Produtos", "/tipo_produtos"  %></li>
             <li><%= link_to "Produtos", "/produtos"  %></li>
+            <li><%= link_to "Clientes", "/clientes"  %></li>
+            <li><%= link_to "Pedidos", "/pedidos"  %></li>
           </ul>
         </div>
       </div>
