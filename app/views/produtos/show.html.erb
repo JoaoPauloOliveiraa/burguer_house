@@ -11,7 +11,9 @@
   <dt><strong><%= model_class.human_attribute_name(:quantidade) %>:</strong></dt>
   <dd><%= @produto.quantidade %></dd>
   <dt><strong><%= model_class.human_attribute_name(:tipo_produto_id) %>:</strong></dt>
-  <dd><%= @produto.tipo_produto_id %></dd>
+  <dd><%= @produto.tipo_produto.nome %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:valor) %>:</strong></dt>
+  <dd><%="R$ #{@produto.valor}" %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("Voltar")),

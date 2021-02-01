@@ -7,7 +7,7 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:nome) %></th>
-      <th><%= model_class.human_attribute_name("Data de criação") %></th>
+     
       <th><%=t '.actions', :default => t("Ações") %></th>
     </tr>
   </thead>
@@ -16,7 +16,7 @@
       <tr>
         <td><%= link_to tipo_produto.id, tipo_produto_path(tipo_produto) %></td>
         <td><%= tipo_produto.nome %></td>
-        <td><%=l tipo_produto.created_at %></td>
+       
         <td>
           <%= link_to t('.edit', :default => t("Editar")),
                       edit_tipo_produto_path(tipo_produto), :class => 'btn btn-default btn-xs' %>

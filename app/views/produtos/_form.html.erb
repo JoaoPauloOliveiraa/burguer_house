@@ -36,6 +36,7 @@
     </div>
     <%=f.error_span(:quantidade) %>
   </div>
+ 
   <div class="form-group">
     <%= f.label :tipo_produto_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
@@ -44,6 +45,15 @@
     </div>
     <%=f.error_span(:tipo_produto_id) %>
   </div>
+  
+  <div class="form-group">
+    <%= f.label :valor, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :valor, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:valor) %>
+  </div>
+  
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
