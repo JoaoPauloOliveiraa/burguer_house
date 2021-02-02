@@ -5,31 +5,29 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
+      
       <th><%= model_class.human_attribute_name(:pedido_id) %></th>
       <th><%= model_class.human_attribute_name(:produto_id) %></th>
       <th><%= model_class.human_attribute_name(:valor) %></th>
       <th><%= model_class.human_attribute_name(:quantidade) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @pedido_produtos.each do |pedido_produto| %>
       <tr>
-        <td><%= link_to pedido_produto.id, pedido_produto_path(pedido_produto) %></td>
+        
         <td><%= pedido_produto.pedido_id %></td>
-        <td><%= pedido_produto.produto_id %></td>
+        <td><%= pedido_produto.produto.nome %></td>
         <td><%= pedido_produto.valor %></td>
         <td><%= pedido_produto.quantidade %></td>
-        <td><%=l pedido_produto.created_at %></td>
         <td>
           <%= link_to t('.mostrar', :default => t("Mostrar")),
-                      pedido_pedido_produtos_path(@pedido, pedido_produto), :class => 'btn btn-default btn-xs' %>
+                     pedido_pedido_produto_path(@pedido, pedido_produto), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_pedido_pedido_produto_path(@pedido, pedido_produto), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      pedido_pedido_produto_path(@pedido, pedido_produto),
+                     pedido_pedido_produto_path(@pedido, pedido_produto),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-xs btn-danger' %>

@@ -8,6 +8,12 @@
   <dd><%= @pedido.cliente.nome %></dd>
   <dt><strong><%= model_class.human_attribute_name(:valor_total) %>:</strong></dt>
   <dd><%= @pedido.valor_total %></dd>
+  <dt><strong><%= model_class.human_attribute_name("Produtos:")%></strong></dt> &nbsp; &nbsp; &nbsp;
+ 
+  <% @pedido.pedido_produtos.each do |pp| %>
+    <%= pp.produto.nome %> - Valor Unidade R$ <%= pp.produto.valor %>
+  <% end %>
+ 
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

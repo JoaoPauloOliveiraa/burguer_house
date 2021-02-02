@@ -7,7 +7,7 @@
   <dt><strong><%= model_class.human_attribute_name(:pedido_id) %>:</strong></dt>
   <dd><%= @pedido_produto.pedido_id %></dd>
   <dt><strong><%= model_class.human_attribute_name(:produto_id) %>:</strong></dt>
-  <dd><%= @pedido_produto.produto_id %></dd>
+  <dd><%= @pedido_produto.produto.nome %></dd>
   <dt><strong><%= model_class.human_attribute_name(:valor) %>:</strong></dt>
   <dd><%= @pedido_produto.valor %></dd>
   <dt><strong><%= model_class.human_attribute_name(:quantidade) %>:</strong></dt>

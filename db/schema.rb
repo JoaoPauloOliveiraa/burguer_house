@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_01_181510) do
+ActiveRecord::Schema.define(version: 2021_02_02_043710) do
 
-  create_table "clientes", charset: "utf8mb4", force: :cascade do |t|
+  create_table "administradors", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "nome"
+    t.string "email"
+    t.string "senha"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "clientes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "nome"
     t.string "cpf"
     t.string "telefone"
@@ -28,7 +36,7 @@ ActiveRecord::Schema.define(version: 2021_02_01_181510) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "pedido_produtos", charset: "utf8mb4", force: :cascade do |t|
+  create_table "pedido_produtos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "pedido_id", null: false
     t.bigint "produto_id", null: false
     t.float "valor"
@@ -39,7 +47,7 @@ ActiveRecord::Schema.define(version: 2021_02_01_181510) do
     t.index ["produto_id"], name: "index_pedido_produtos_on_produto_id"
   end
 
-  create_table "pedidos", charset: "utf8mb4", force: :cascade do |t|
+  create_table "pedidos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "cliente_id", null: false
     t.float "valor_total"
     t.datetime "created_at", precision: 6, null: false
@@ -47,7 +55,7 @@ ActiveRecord::Schema.define(version: 2021_02_01_181510) do
     t.index ["cliente_id"], name: "index_pedidos_on_cliente_id"
   end
 
-  create_table "produtos", charset: "utf8mb4", force: :cascade do |t|
+  create_table "produtos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "nome"
     t.text "descricao"
     t.integer "quantidade"
@@ -58,7 +66,7 @@ ActiveRecord::Schema.define(version: 2021_02_01_181510) do
     t.index ["tipo_produto_id"], name: "index_produtos_on_tipo_produto_id"
   end
 
-  create_table "tipo_produtos", charset: "utf8mb4", force: :cascade do |t|
+  create_table "tipo_produtos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "nome"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

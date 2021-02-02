@@ -15,17 +15,12 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :pedido_id, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :pedido_id, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:pedido_id) %>
-  </div>
+  
   <div class="form-group">
     <%= f.label :produto_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :produto_id, :class => 'form-control' %>
+      <%= f.select :produto_id, Produto.all.collect{|p| [p.nome, p.id]}, {},
+      :class => 'form-control' %>
     </div>
     <%=f.error_span(:produto_id) %>
   </div>
@@ -48,7 +43,7 @@
     <div class="col-lg-offset-2 col-lg-10">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                pedido_pedido_produtos_path, :class => 'btn btn-default' %>
+                pedido_pedido_produtos_path(@pedido), :class => 'btn btn-default' %>
     </div>
   </div>
 

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :administradors
   resources :pedidos  do 
     resources :pedido_produtos
   end
@@ -8,6 +9,8 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get '/home', to: 'home#index'
   resources :tipo_produtos
+
+  get '/login', to: 'login#index'
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
